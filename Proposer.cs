@@ -10,7 +10,7 @@ namespace paxos_demo
         public List<Acceptor> acceptors;
         public string[] proposals;
 
-        public  Proposer(int _nodeId, List<Acceptor> _acceptors, string[] _proposals)
+        public Proposer(int _nodeId, List<Acceptor> _acceptors, string[] _proposals)
             : base(_nodeId)
         {
             acceptors = new List<Acceptor>(_acceptors);
@@ -31,7 +31,18 @@ namespace paxos_demo
 
                 string proposal = proposals[rnd.Next(0, 3)];
 
-                Logger.Proposer_picked_value(nodeId, proposal);
+                if (minProposal is null)
+                {
+                    minProposal = 0;
+                }
+                else
+                {
+                    minProposal++;
+                }
+
+                Logger.Proposer_picked_value(nodeId, proposal, minProposal);
+
+                acceptors.ForEach(a => a.Prepare(minProposal));
             }
         }
     }

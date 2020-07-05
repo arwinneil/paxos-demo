@@ -9,7 +9,7 @@ namespace paxos_demo
         public int? minProposal;
         public int? acceptedProposal;
 
-        public List<string> log;
+        public static List<string> log;
 
         public Node(int _nodeId)
         {
