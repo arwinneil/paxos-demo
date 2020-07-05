@@ -13,5 +13,10 @@ namespace paxos_demo
         {
             Console.WriteLine($"New Proposer #{id} up, connected to {acceptor_no} Acceptors");
         }
+
+        public static void Proposer_picked_value(int id, string value)
+        {
+            Console.WriteLine($"New Proposer #{id} up picked value {value}");
+        }
     }
 }
