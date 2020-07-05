@@ -16,7 +16,7 @@ namespace paxos_demo
 
         public static void Proposer_picked_value(int id, string value)
         {
-            Console.WriteLine($"New Proposer #{id} up picked value {value}");
+            Console.WriteLine($"Proposer #{id} up picked value {value}");
         }
     }
 }
