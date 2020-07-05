@@ -1,14 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace paxos_demo
 {
-    class Node
+    internal class Node
     {
+        public int nodeId;
+
         public int? minProposal;
         public int? acceptedProposal;
 
         public List<string> log;
+
+        public Node(int _nodeId)
+        {
+            nodeId = _nodeId;
+        }
     }
 }

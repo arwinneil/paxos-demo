@@ -7,9 +7,13 @@ namespace paxos_demo
     {
         public List<Acceptor> acceptors;
 
-        public Proposer(List<Acceptor> _acceptors)
+        public Proposer(int _nodeId, List<Acceptor> _acceptors)
+            : base(_nodeId)
         {
             acceptors = new List<Acceptor>(_acceptors);
+
+            Logger.Log_new_proposer(nodeId, acceptors.Count);
+
         }
     }
 }
